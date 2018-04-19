@@ -1,0 +1,8 @@
+{
+  "name": "BitsHelp",
+  "app_id": "2d44db4d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
