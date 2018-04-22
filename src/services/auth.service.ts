@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-	private user: firebase.UserInfo;
+	private user: firebase.User;
 
 	constructor(public afAuth: AngularFireAuth) {
 		afAuth.authState.subscribe(user => {
@@ -23,6 +23,12 @@ export class AuthService {
 			 credentials.password);
 	}
 
+    setUser(){
+        this.afAuth.authState.subscribe(user => {
+            this.user = user;
+            console.log(user.email)
+		});
+    }
     
    	get authenticated(): boolean {
         return this.user !== null;

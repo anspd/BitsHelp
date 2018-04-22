@@ -1,20 +1,53 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Home</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <h3 padding>Testing</h3>
+  <div *ngFor="let item of feeds | async">
+        <ion-card *ngIf="id!=item.created_by && !item.accepted_by">
+            <ion-item >
+              <ion-row>
+                <ion-col text-left> <h2>{{item.name}}</h2></ion-col>
+                <ion-col text-right> <h3>{{item.room_number}}</h3> </ion-col>
+                
+              </ion-row>
 
-<ion-content padding>
-  <h3>Testing</h3>
+              <ion-row>
+                  <ion-col text-left> <h3>{{item.college_id}}</h3> </ion-col>
+                  <ion-col text-right>  <h3>{{item.mobile_number}}</h3></ion-col>
+              </ion-row>
+              
+             
+             
+             
+            </ion-item>
+  
+            <ion-card-content>
+              <p>{{item.service_details}}</p>
+            </ion-card-content>
 
-  <ul>
-    <li *ngFor="let item of items | async">
-      {{ item.name }}
-    </li>
-  </ul>
+            <ion-row>
+              <ion-col text-right>
+                <p>{{item.from_place}} => {{item.to_place}}</p>
+              </ion-col>
+            </ion-row>
+          
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-left clear medium (click)="accept(item)">
+                  <div>Accept</div>
+                </button>
+              </ion-col>
+            </ion-row>
+          
+          </ion-card>
+        </div>
+  </ion-content>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+  

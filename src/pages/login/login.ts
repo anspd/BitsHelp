@@ -41,11 +41,16 @@ export class LoginPage {
 			email: this.email,
 			password: this.password
 		};
-		this.auth.signInWithEmail(credentials)
+    this.auth.signInWithEmail(credentials)
+    .then(()=>{
+      this.auth.setUser();
+    })
 			.then(
-				() => this.navCtrl.setRoot(HomePage),
-				error => console.log(error.message)
-			);
+				() => this.navCtrl.setRoot(HomePage)
+      )
+      .catch(error=>{
+        alert(error.message);
+      });
 }
 
 goToSignupPage()

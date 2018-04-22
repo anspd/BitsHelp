@@ -3,18 +3,24 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../../services/auth.service';
 
+
+/**
+ * Generated class for the HelpacceptedPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 export interface Item {
   id:string;
   accepted_by: string;
 }
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: 'home.html',
+  selector: 'page-helpaccepted',
+  templateUrl: 'helpaccepted.html',
 })
-export class HomePage {
- 
+export class HelpacceptedPage {
+
   private itemDoc: AngularFirestoreDocument<Item>;
   feeds: Observable<any[]>;
  
@@ -29,10 +35,10 @@ export class HomePage {
     this.id = this.auth.getUid();
   }
 
-  accept(item: Item)
+ remove(item)
   {
     this.itemDoc = this.afs.doc<Item>('feeds/'+item.id);
-    item.accepted_by=this.id;
+    item.accepted_by=null;
     this.itemDoc.update(item);
   }
 

@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,16 +19,19 @@ import { AuthService } from '../services/auth.service';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { AskhelpPage } from '../pages/askhelp/askhelp';
+import { HelprequestedPage } from '../pages/helprequested/helprequested';
+import { HelpacceptedPage } from '../pages/helpaccepted/helpaccepted';
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     AskhelpPage,
     SignupPage,
+    HelpacceptedPage,
+    HelprequestedPage
   ],
   imports: [
     BrowserModule,
@@ -43,10 +45,11 @@ import { AskhelpPage } from '../pages/askhelp/askhelp';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     AskhelpPage,
-    SignupPage
+    SignupPage,
+    HelpacceptedPage,
+    HelprequestedPage
   ],
   providers: [
     StatusBar,
